@@ -21,12 +21,14 @@
 
 <header>
 	<h1><a href="{base}/">{'CST=>'}</a> <span class="page">{prettyPage}</span></h1>
-	{#if dev}
-		<div class="links">
-			<a href="https://google.com">Github</a>
+	<div class="links">
+		<a href="https://github.com/Ashwagandhae/cst-demo" target="_blank" rel="noopener noreferrer"
+			>Code on Github</a
+		>
+		{#if dev}
 			<button on:click={() => localStorage.clear()}>Clear localStorage</button>
-		</div>
-	{/if}
+		{/if}
+	</div>
 </header>
 <main>
 	<slot />
