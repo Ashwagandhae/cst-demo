@@ -7,7 +7,9 @@
 	--vote: hsl(260, 30%, 40%);
 	--vote-1: hsl(260, 50%, 60%);
 
-	--text: hsl(0, 0%, 100%);
+	--text: hsl(260, 50%, 90%);
+	--text-strong: hsl(260, 50%, 100%);
+
 	--text-weak: hsl(0, 0%, 60%);
 	--text-accent: hsl(260, 100%, 80%);
 	--text-accent-hover: hsl(260, 100%, 90%);

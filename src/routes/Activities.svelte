@@ -18,7 +18,7 @@
 		<Card title="Controversial quiz" url="./quiz" />
 	{/if}
 	{#if !exclude.includes('signup')}
-		<Card title="Sign up" url="./signup" />
+		<Card title="Sign up" url="./signup" special />
 	{/if}
 </div>
 

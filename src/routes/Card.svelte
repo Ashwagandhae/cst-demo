@@ -1,11 +1,12 @@
 <script lang="ts">
 	export let title: string;
 	export let url: string;
+	export let special: boolean = false;
 
 	export let arrowBack: boolean = false;
 </script>
 
-<a class="card" href={url}>
+<a class="card" href={url} class:special>
 	<h2>{title}</h2>
 	<h2 class="arrow" class:back={arrowBack}>{arrowBack ? '<-' : '->'}</h2>
 </a>
@@ -56,5 +57,12 @@
 		margin: 0;
 		padding: 0;
 		font-size: 1.5em;
+	}
+
+	.card.special {
+		color: var(--text);
+	}
+	.card.special:hover {
+		color: var(--text-strong);
 	}
 </style>

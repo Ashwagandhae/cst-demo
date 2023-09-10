@@ -23,6 +23,9 @@
 	let email: string;
 	function signUp() {
 		if (email) {
+			if (email.includes('@')) {
+				email = email.split('@')[0];
+			}
 			signUps.update((signUps) => [email, ...signUps]);
 			email = '';
 		}
