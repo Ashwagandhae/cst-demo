@@ -37,6 +37,7 @@
 	"dependencies": {
 		"@fontsource-variable/jetbrains-mono": "^5.0.9",
 		"@novacbn/svelte-codejar": "^0.1.2",
+		"@sveltejs/adapter-static": "^2.0.3",
 		"codejar": "^4.2.0",
 		"gh-pages": "^6.0.0",
 		"highlight.js": "^11.8.0"
