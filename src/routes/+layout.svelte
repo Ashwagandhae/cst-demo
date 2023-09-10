@@ -8,7 +8,7 @@
 	import { base } from '$app/paths';
 
 	$: prettyPage =
-		$page.url.pathname.length == 1
+		$page.url.pathname == base
 			? ''
 			: '/' +
 			  $page.url.pathname
