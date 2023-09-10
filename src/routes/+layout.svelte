@@ -5,12 +5,14 @@
 
 	// imports to show current page
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 
 	$: prettyPage =
 		$page.url.pathname.length == 1
 			? ''
 			: '/' +
 			  $page.url.pathname
+					.replace(base, '')
 					.slice(1)
 					.split('-')
 					.map((word) => word[0] + word.slice(1))
@@ -18,7 +20,7 @@
 </script>
 
 <header>
-	<h1><a href="/">{'CST=>'}</a> <span class="page">{prettyPage}</span></h1>
+	<h1><a href="{base}/">{'CST=>'}</a> <span class="page">{prettyPage}</span></h1>
 	{#if dev}
 		<div class="links">
 			<a href="https://google.com">Github</a>
