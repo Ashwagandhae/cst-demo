@@ -13,16 +13,7 @@ export type Problem = {
 	ret: TestRet;
 };
 
-export type TestRet = (
-	| {
-			tag: 'number';
-			tests: number[];
-	  }
-	| {
-			tag: 'string';
-			tests: string[];
-	  }
-) & { name?: string };
+export type TestRet = TestArg;
 
 export type TestArg = (
 	| {
@@ -34,12 +25,32 @@ export type TestArg = (
 			tests: number[][];
 	  }
 	| {
+			tag: 'numberArrayArray';
+			tests: number[][][];
+	  }
+	| {
 			tag: 'string';
 			tests: string[];
 	  }
 	| {
 			tag: 'stringArray';
 			tests: string[][];
+	  }
+	| {
+			tag: 'stringArrayArray';
+			tests: string[][][];
+	  }
+	| {
+			tag: 'boolean';
+			tests: boolean[];
+	  }
+	| {
+			tag: 'booleanArray';
+			tests: boolean[][];
+	  }
+	| {
+			tag: 'booleanArrayArray';
+			tests: boolean[][][];
 	  }
 ) & { name?: string };
 
@@ -103,4 +114,5 @@ export type Stat = {
 	number: number;
 	unit: string;
 	description?: string;
+	big?: boolean;
 };

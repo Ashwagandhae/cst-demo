@@ -29,29 +29,31 @@
 		<Activities exclude={['quiz']} />
 	{:else}
 		<div class="content">
-			<div class="problemList">
-				{#each problems as problem, index}
-					<button
-						class="problemTab"
-						class:selected={index == problemIndex}
-						on:click={() => (problemIndex = index)}
-					>
-						<span class="name">
-							{problem.name}
-						</span>
-						<span class="state">
-							{#if resultStates[index].tag == 'none'}
-								{''}
-							{:else if resultStates[index].tag == 'waiting'}
-								*
-							{:else if resultStates[index].tag == 'success'}
-								{'✓'}
-							{:else if resultStates[index].tag == 'failure'}
-								*
-							{/if}
-						</span>
-					</button>
-				{/each}
+			<div class="problemListScroll">
+				<div class="problemList">
+					{#each problems as problem, index}
+						<button
+							class="problemTab"
+							class:selected={index == problemIndex}
+							on:click={() => (problemIndex = index)}
+						>
+							<span class="name">
+								{problem.name}
+							</span>
+							<span class="state">
+								{#if resultStates[index].tag == 'none'}
+									{''}
+								{:else if resultStates[index].tag == 'waiting'}
+									*
+								{:else if resultStates[index].tag == 'success'}
+									{'✓'}
+								{:else if resultStates[index].tag == 'failure'}
+									*
+								{/if}
+							</span>
+						</button>
+					{/each}
+				</div>
 			</div>
 			{#if problemIndex >= 0 && problemIndex < problems.length}
 				{#key problemIndex}
@@ -66,7 +68,7 @@
 			<!-- <div class="buttons">
 				<button on:click={() => problemIndex--} disabled={problemIndex === -1}>Previous</button>
 				{#if problemIndex == problems.length - 1}
-					<button on:click={() => problemIndex++}>Finish</button>
+				<button on:click={() => problemIndex++}>Finish</button>
 				{:else}
 					<button on:click={() => problemIndex++} disabled={problemIndex === problems.length - 1}
 						>Next</button
@@ -89,7 +91,16 @@
 		position: relative;
 	}
 
+	.problemListScroll {
+		height: 100%;
+		overflow: scroll;
+		position: relative;
+		width: 15rem;
+		height: 100%;
+	}
+
 	.problemList {
+		position: absolute;
 		display: flex;
 		flex-direction: column;
 		height: 100%;

@@ -2,13 +2,14 @@
 	export let number: number;
 	export let unit: string | null = null;
 	export let description: string | null = null;
+	export let big: boolean = false;
 </script>
 
-<div class="stat">
+<div class="stat" class:big>
 	<h2>
 		{number}{#if unit != null}{' ' + unit}{/if}
 	</h2>
-	<h3>{description}</h3>
+	<p>{description}</p>
 </div>
 
 <style>
@@ -16,7 +17,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
+		justify-content: space-between;
 		width: 100%;
 		padding: var(--pad);
 		background: var(--back-1);
@@ -26,17 +27,23 @@
 		border-radius: var(--rad);
 	}
 
+	/* take up 2 grids */
+	.big {
+		grid-column: span 2;
+	}
+
 	h2 {
 		margin: 0;
 		padding: 0;
 		font-size: 2em;
 		font-weight: 600;
+		color: var(--text-accent);
 	}
 
-	h3 {
-		margin: 0;
+	p {
+		margin: auto 0;
 		padding: 0;
-		font-size: 1.2em;
+		font-size: 1em;
 		line-height: 1.5em;
 		font-weight: 400;
 	}

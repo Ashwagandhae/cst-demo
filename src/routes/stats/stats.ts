@@ -2,38 +2,42 @@ import type { Stat } from '$lib/types';
 
 export const stats: Stat[] = [
 	{
-		number: 1,
-		unit: 'second',
-		description: 'is the time it takes for a hummingbird to flap its wings once'
+		number: 2,
+		unit: 'years',
+		description: 'CST lifetime',
+		big: true
+	},
+	{
+		number: 2,
+		unit: 'years',
+		description: 'ACSL finalist streak'
+	},
+
+	{
+		number: 4,
+		unit: 'grades',
+		description: 'represented in CST'
+	},
+	{
+		number: 2,
+		unit: 'contests',
+		description: 'participated in: ACSL 2021-now, USACO 2022-now'
 	},
 	{
 		number: 1,
-		unit: 'minute',
-		description: 'is the time it takes for a hummingbird to flap its wings 50 times'
+		unit: 'AP',
+		description: 'studied for successfully: AP Computer Science A'
 	},
 	{
-		number: 1,
-		unit: 'hour',
-		description: 'is the time it takes for a hummingbird to flap its wings 3000 times'
+		number: 0,
+		unit: 'skills',
+		description: 'required to join CST'
 	},
 	{
-		number: 1,
-		unit: 'day',
-		description: 'is the time it takes for a hummingbird to flap its wings 72000 times'
-	},
-	{
-		number: 1,
-		unit: 'week',
-		description: 'is the time it takes for a hummingbird to flap its wings 504000 times'
-	},
-	{
-		number: 1,
-		unit: 'week',
-		description: 'is the time it takes for a hummingbird to flap its wings 504000 times'
-	},
-	{
-		number: 1,
-		unit: 'week',
-		description: 'is the time it takes for a hummingbird to flap its wings 504000 times'
+		number: 11,
+		unit: 'languages',
+		description:
+			'collectively known, including Rust, Javascript, Typescript, HTML, CSS, Go, Python, C++, Java, Swift, Wolfram Language, Haskell',
+		big: true
 	}
 ];

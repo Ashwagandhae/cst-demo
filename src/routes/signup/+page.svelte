@@ -4,6 +4,7 @@
 	import { writable, type Writable } from 'svelte/store';
 	import Title from '../Title.svelte';
 	import Activities from '../Activities.svelte';
+	import Scan from './Scan.svelte';
 
 	const signUps: Writable<string[]> = writable([]);
 
@@ -39,6 +40,8 @@
 
 <Page>
 	<div class="content">
+		<Scan />
+		<div class="or">or</div>
 		<div class="signup">
 			<div class="mailInput">
 				<input
@@ -75,6 +78,12 @@
 		flex-direction: column;
 		gap: var(--pad);
 		height: 100%;
+	}
+
+	.or {
+		font-size: 1.2rem;
+		width: 100%;
+		text-align: center;
 	}
 	.signup {
 		display: flex;

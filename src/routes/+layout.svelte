@@ -8,20 +8,20 @@
 	import { base } from '$app/paths';
 
 	$: prettyPage =
-		$page.url.pathname == base
+		$page.url.pathname == '/' || $page.url.pathname == base
 			? ''
-			: '/' +
-			  $page.url.pathname
-					.replace(base, '')
-					.slice(1)
-					.split('-')
-					.map((word) => word[0] + word.slice(1))
-					.join(' ');
+			: '/' + $page.url.pathname.replace(base, '').slice(1).split('-').join(' ');
+
+	// TODO add cmd + enter to submit
+	// TODO add better stats
+	// TODO add cps campus QR code
+	// TODO add better js hints
 </script>
 
 <header>
-	<h1><a href="{base}/">{'CST=>'}</a> <span class="page">{prettyPage}</span></h1>
+	<h1><a href="{base}/">{'=>CST'}</a> <span class="page">{prettyPage}</span></h1>
 	<div class="links">
+		<a href="{base}/signup"><button>Sign Up</button></a>
 		<a href="https://github.com/Ashwagandhae/cst-demo" target="_blank" rel="noopener noreferrer"
 			>Code on Github</a
 		>
@@ -39,8 +39,11 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 0 1em;
+		padding: var(--pad);
 		background: var(--back-1);
+	}
+	h1 {
+		margin: 0;
 	}
 
 	main {
