@@ -34,10 +34,10 @@ export const stats: Stat[] = [
 		description: 'required to join CST'
 	},
 	{
-		number: 11,
+		number: 16,
 		unit: 'languages',
 		description:
-			'collectively known, including Rust, Javascript, Typescript, HTML, CSS, Go, Python, C++, Java, Swift, Wolfram Language, Haskell',
+			'collectively known, including Rust, Javascript, Typescript, HTML, CSS, Go, Python, C++, Java, Swift, Wolfram Language, Haskell, Unlambda, Julia, Lisp, Assembly',
 		big: true
 	}
 ];
