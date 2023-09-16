@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { questions } from './questions';
 	import Question from './Question.svelte';
-	import Page from '../Page.svelte';
+	import Page from '../../Page.svelte';
 	import { onMount } from 'svelte';
 	import type { AnswerStat } from '$lib/types';
 	import { writable, type Writable } from 'svelte/store';
-	import Title from '../Title.svelte';
-	import Activities from '../Activities.svelte';
+	import Title from '../../Title.svelte';
+	import Activities from '../../Activities.svelte';
 
 	let questionIndex = -1;
 
@@ -52,8 +52,8 @@
 			on:click={() => (questionIndex = 0)}
 		/>
 	{:else if questionIndex == questions.length}
-		<Title title="Done" subtitle="Try these other fun activities" />
-		<Activities exclude={['quiz']} />
+		<Title title="Done" subtitle="Great job!" />
+		<Activities items={['home', 'problems', 'stats', 'signup']} />
 	{:else}
 		<div class="content">
 			{#if questionIndex >= 0 && questionIndex < questions.length}

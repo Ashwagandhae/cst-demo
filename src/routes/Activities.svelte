@@ -2,25 +2,46 @@
 	import Card from './Card.svelte';
 	import { base } from '$app/paths';
 
-	export let exclude: string[] = [];
+	export let items: (keyof typeof allActivities)[] = [];
+
+	const allActivities = {
+		home: {
+			title: 'Home',
+			url: '/',
+			arrowBack: true
+		},
+		fair: {
+			title: 'Club fair activities',
+			url: 'fair'
+		},
+		quiz: {
+			title: 'Controversial quiz',
+			url: 'fair/quiz'
+		},
+		problems: {
+			title: 'Fun coding problems',
+			url: 'fair/problems'
+		},
+		stats: {
+			title: 'CST stats',
+			url: 'fair/stats'
+		},
+		signup: {
+			title: 'Sign up',
+			url: 'fair/signup',
+			special: true
+		},
+		slides: {
+			title: 'Slides',
+			url: 'slides'
+		}
+	};
 </script>
 
 <div class="options">
-	{#if exclude.length > 0}
-		<Card title="Home" url="{base}/" arrowBack />
-	{/if}
-	{#if !exclude.includes('quiz')}
-		<Card title="Controversial quiz" url="{base}/quiz" />
-	{/if}
-	{#if !exclude.includes('problems')}
-		<Card title="Fun coding problems" url="{base}/problems" />
-	{/if}
-	{#if !exclude.includes('stats')}
-		<Card title="CST stats" url="{base}/stats" />
-	{/if}
-	{#if !exclude.includes('signup')}
-		<Card title="Sign up" url="{base}/signup" special />
-	{/if}
+	{#each items as item}
+		<Card {...allActivities[item]} />
+	{/each}
 </div>
 
 <style>

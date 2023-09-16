@@ -1,9 +1,7 @@
 <script lang="ts">
-	import Page from '../Page.svelte';
+	import Page from '../../Page.svelte';
 	import { onMount } from 'svelte';
 	import { writable, type Writable } from 'svelte/store';
-	import Title from '../Title.svelte';
-	import Activities from '../Activities.svelte';
 	import Scan from './Scan.svelte';
 
 	const signUps: Writable<string[]> = writable([]);

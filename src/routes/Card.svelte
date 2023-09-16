@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+
 	export let title: string;
 	export let url: string;
 	export let special: boolean = false;
@@ -6,7 +8,7 @@
 	export let arrowBack: boolean = false;
 </script>
 
-<a class="card" href={url} class:special>
+<a class="card" href={base + url} class:special>
 	<h2>{title}</h2>
 	<h2 class="arrow" class:back={arrowBack}>{arrowBack ? '<-' : '->'}</h2>
 </a>

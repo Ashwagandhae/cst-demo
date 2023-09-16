@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Page from '../Page.svelte';
-	import Title from '../Title.svelte';
-	import Activities from '../Activities.svelte';
+	import Page from '../../Page.svelte';
+	import Title from '../../Title.svelte';
+	import Activities from '../../Activities.svelte';
 	import Problem from './Problem.svelte';
 
 	import { problems, getStartingCode } from './problems';
@@ -24,9 +24,6 @@
 			start="Start"
 			on:click={() => (problemIndex = 0)}
 		/>
-	{:else if problemIndex == problems.length}
-		<Title title="Done" subtitle="Try these other fun activities" />
-		<Activities exclude={['quiz']} />
 	{:else}
 		<div class="content">
 			<div class="problemListScroll">

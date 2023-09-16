@@ -116,3 +116,9 @@ export type Stat = {
 	description?: string;
 	big?: boolean;
 };
+
+export type Slide = {
+	title: string;
+	index: number;
+	url: string;
+};

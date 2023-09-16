@@ -7,10 +7,26 @@
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
 
-	$: prettyPage =
-		$page.url.pathname == '/' || $page.url.pathname == base
-			? ''
-			: '/' + $page.url.pathname.replace(base, '').slice(1).split('-').join(' ');
+	// $: prettyPage =
+	// 	($page.url.pathname == '/' || $page.url.pathname == base
+	// 		? []
+	// 		: $page.url.pathname.replace(base, '').slice(1).split('/'))
+
+	let prettyPage: { name: string; url: string }[] = [];
+	$: {
+		let path = $page.url.pathname;
+		if (path == '/' || path == base) {
+			prettyPage = [];
+		} else {
+			let split = path.replace(base, '').slice(1).split('/');
+			prettyPage = split.map((name, i) => {
+				return {
+					name,
+					url: '/' + split.slice(0, i + 1).join('/')
+				};
+			});
+		}
+	}
 
 	// TODO add cmd + enter to submit
 	// TODO add better stats
@@ -18,16 +34,25 @@
 	// TODO add better js hints
 </script>
 
+<head>
+	<title>{'⇒CST'}</title>
+</head>
+
 <header>
-	<h1><a href="{base}/">{'=>CST'}</a> <span class="page">{prettyPage}</span></h1>
+	<h1>
+		<a href="{base}/">{'=>CST'}</a>
+		{#each prettyPage as page}
+			<a class="page" href={page.url}>/{page.name}</a>
+		{/each}
+	</h1>
 	<div class="links">
-		<a href="{base}/signup"><button>Sign Up</button></a>
+		<a href="{base}/fair/signup"><button>Sign Up</button></a>
 		<a href="https://github.com/Ashwagandhae/cst-demo" target="_blank" rel="noopener noreferrer"
 			>Code on Github</a
 		>
-		{#if dev}
+		<!-- {#if dev}
 			<button on:click={() => localStorage.clear()}>Clear localStorage</button>
-		{/if}
+		{/if} -->
 	</div>
 </header>
 <main>
@@ -63,5 +88,9 @@
 	.page {
 		color: var(--text);
 		font-weight: 400;
+	}
+
+	.page:hover {
+		color: var(--text-strong);
 	}
 </style>

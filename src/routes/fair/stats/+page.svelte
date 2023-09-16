@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Page from '../Page.svelte';
-	import Title from '../Title.svelte';
+	import Page from '../../Page.svelte';
+	import Title from '../../Title.svelte';
 	import Stat from './Stat.svelte';
 
 	import { stats } from './stats';
