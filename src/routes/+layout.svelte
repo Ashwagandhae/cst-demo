@@ -42,7 +42,7 @@
 	<h1>
 		<a href="{base}/">{'=>CST'}</a>
 		{#each prettyPage as page}
-			<a class="page" href={page.url}>/{page.name}</a>
+			<a class="page" href="{base}/{page.url}">/{page.name}</a>
 		{/each}
 	</h1>
 	<div class="links">

@@ -15,7 +15,7 @@
 <Page>
 	<div class="meta">
 		<h1>{data.title}</h1>
-		<a href={pdfUrl} target="_blank" rel="noopener noreferrer">Open in new tab {'->'}</a>
+		<a href="url" target="_blank" rel="noopener noreferrer">Open in new tab {'->'}</a>
 	</div>
 	<object title="pdf" data={pdfUrl} type="application/pdf" width="100%" height="100%" />
 </Page>
