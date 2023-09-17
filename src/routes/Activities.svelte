@@ -1,46 +1,17 @@
 <script lang="ts">
 	import Card from './Card.svelte';
-	import { base } from '$app/paths';
 
-	export let items: (keyof typeof allActivities)[] = [];
-
-	const allActivities = {
-		home: {
-			title: 'Home',
-			url: '/',
-			arrowBack: true
-		},
-		fair: {
-			title: 'Club fair activities',
-			url: 'fair'
-		},
-		quiz: {
-			title: 'Controversial quiz',
-			url: 'fair/quiz'
-		},
-		problems: {
-			title: 'Fun coding problems',
-			url: 'fair/problems'
-		},
-		stats: {
-			title: 'CST stats',
-			url: 'fair/stats'
-		},
-		signup: {
-			title: 'Sign up',
-			url: 'fair/signup',
-			special: true
-		},
-		slides: {
-			title: 'Slides',
-			url: 'slides'
-		}
-	};
+	export let items: {
+		title: string;
+		url: string;
+		special?: boolean;
+		arrowBack?: boolean;
+	}[] = [];
 </script>
 
 <div class="options">
 	{#each items as item}
-		<Card {...allActivities[item]} />
+		<Card {...item} />
 	{/each}
 </div>
 

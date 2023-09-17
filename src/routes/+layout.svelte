@@ -19,12 +19,14 @@
 			prettyPage = [];
 		} else {
 			let split = path.replace(base, '').slice(1).split('/');
-			prettyPage = split.map((name, i) => {
-				return {
-					name,
-					url: '/' + split.slice(0, i + 1).join('/')
-				};
-			});
+			prettyPage = split
+				.filter((s) => s.length >= 0)
+				.map((name, i) => {
+					return {
+						name,
+						url: split.slice(0, i + 1).join('/')
+					};
+				});
 		}
 	}
 
@@ -36,19 +38,19 @@
 
 <head>
 	<title>{'⇒CST'}</title>
+	<link rel="icon" href="{base}/favicon.png" />
 </head>
 
 <header>
 	<h1>
 		<a href="{base}/">{'=>CST'}</a>
 		{#each prettyPage as page}
-			<a class="page" href="{base}/{page.url}">/{page.name}</a>
+			/<a class="page" href="{base}/{page.url}">{page.name}</a>
 		{/each}
 	</h1>
 	<div class="links">
-		<a href="{base}/fair/signup"><button>Sign Up</button></a>
 		<a href="https://github.com/Ashwagandhae/cst-demo" target="_blank" rel="noopener noreferrer"
-			>Code on Github</a
+			>Github</a
 		>
 		<!-- {#if dev}
 			<button on:click={() => localStorage.clear()}>Clear localStorage</button>
@@ -69,6 +71,9 @@
 	}
 	h1 {
 		margin: 0;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 	main {

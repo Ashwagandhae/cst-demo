@@ -41,6 +41,39 @@
 	for (let _ of questions) {
 		checkedAnswers.push(null);
 	}
+
+	const allActivities = {
+		home: {
+			title: 'Home',
+			url: '/',
+			arrowBack: true
+		},
+		fair: {
+			title: 'Club fair activities',
+			url: 'fair'
+		},
+		quiz: {
+			title: 'Controversial quiz',
+			url: 'fair/quiz'
+		},
+		problems: {
+			title: 'Fun coding problems',
+			url: 'fair/problems'
+		},
+		stats: {
+			title: 'CST stats',
+			url: 'fair/stats'
+		},
+		signup: {
+			title: 'Sign up',
+			url: 'fair/signup',
+			special: true
+		},
+		slides: {
+			title: 'Slides',
+			url: 'slides'
+		}
+	};
 </script>
 
 <Page>
@@ -53,7 +86,27 @@
 		/>
 	{:else if questionIndex == questions.length}
 		<Title title="Done" subtitle="Great job!" />
-		<Activities items={['home', 'problems', 'stats', 'signup']} />
+		<Activities
+			items={[
+				{
+					title: 'Home',
+					url: '/'
+				},
+				{
+					title: 'Fun coding problems',
+					url: './problems'
+				},
+				{
+					title: 'CST stats',
+					url: './stats'
+				},
+				{
+					title: 'Sign up',
+					url: './signup',
+					special: true
+				}
+			]}
+		/>
 	{:else}
 		<div class="content">
 			{#if questionIndex >= 0 && questionIndex < questions.length}

@@ -4,6 +4,7 @@
 	import Title from '../Title.svelte';
 
 	import type { Slide } from '$lib/types';
+	import { base } from '$app/paths';
 
 	export let data: {
 		slides: Slide[];
@@ -14,7 +15,7 @@
 	<Title title="Slides" subtitle="Check out the CST slides" />
 	<div class="slides">
 		{#each data.slides as slide}
-			<Card title={slide.title} url={`slides/${slide.url}`} />
+			<Card title={slide.title} url={`${base}/slides/${slide.url}`} />
 		{/each}
 	</div>
 </Page>
