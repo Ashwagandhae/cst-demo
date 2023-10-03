@@ -15,7 +15,7 @@
 	<Title title="Slides" subtitle="Check out the CST slides" />
 	<div class="slides">
 		{#each data.slides as slide}
-			<Card title={slide.title} url={`${base}/slides/${slide.url}`} />
+			<Card title={`${slide.index}: ${slide.title}`} url={`${base}/slides/${slide.url}`} />
 		{/each}
 	</div>
 </Page>

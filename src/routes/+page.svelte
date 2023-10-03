@@ -13,6 +13,10 @@
 				url: 'slides'
 			},
 			{
+				title: 'ACSL',
+				url: 'acsl'
+			},
+			{
 				title: 'Club fair activities',
 				url: 'fair'
 			}

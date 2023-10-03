@@ -1,12 +1,8 @@
 <script lang="ts">
+	import type { ComponentProps } from 'svelte';
 	import Card from './Card.svelte';
 
-	export let items: {
-		title: string;
-		url: string;
-		special?: boolean;
-		arrowBack?: boolean;
-	}[] = [];
+	export let items: ComponentProps<Card>[];
 </script>
 
 <div class="options">

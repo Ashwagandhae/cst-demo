@@ -13,7 +13,7 @@ export const GET = async () => {
 		})
 	);
 	// sort by index
-	slides.sort((a, b) => a.index - b.index);
+	slides.sort((a, b) => b.index - a.index);
 
 	return json(slides);
 };

@@ -6,9 +6,10 @@
 	export let special: boolean = false;
 
 	export let arrowBack: boolean = false;
+	export let target: string = '_self';
 </script>
 
-<a class="card" href={url} class:special>
+<a class="card" href={url} class:special {target}>
 	<h2>{title}</h2>
 	<h2 class="arrow" class:back={arrowBack}>{arrowBack ? '<-' : '->'}</h2>
 </a>

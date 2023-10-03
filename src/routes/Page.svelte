@@ -19,7 +19,7 @@
 	}
 	.content {
 		position: absolute;
-		width: min(100%, 60rem);
+		width: min(100%, 75rem);
 		height: 100%;
 		display: flex;
 		flex-direction: column;
